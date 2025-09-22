@@ -1,18 +1,18 @@
-async function fetchTodayWeather(location) {
+async function fetchTodayWeather(location, unitGroup) {
 	let weatherResponse = await fetch(
-		`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=metric&key=ZF33738HFXAPBMS8T924SFPYT&contentType=json`,
+		`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=${unitGroup}&key=ZF33738HFXAPBMS8T924SFPYT&contentType=json`,
 	);
 	return weatherResponse;
 }
 
-async function getWeatherJson(location) {
-	let weatherResponse = await fetchTodayWeather(location);
+async function getWeatherJson(location, unitGroup) {
+	let weatherResponse = await fetchTodayWeather(location, unitGroup);
 	let weatherJson = await weatherResponse.json();
 	return weatherJson;
 }
 
-export async function getTodayWeather(location) {
-	let weatherJson = await getWeatherJson(location);
+export async function getTodayWeather(location, unitGroup) {
+	let weatherJson = await getWeatherJson(location, unitGroup);
 	let trimmedWeatherData = {};
 	trimmedWeatherData.icon = weatherJson.days[0].icon;
 	trimmedWeatherData.conditions = weatherJson.days[0].conditions;

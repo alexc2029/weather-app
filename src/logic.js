@@ -1,7 +1,7 @@
-import { addLocationListener } from "./weather-form";
+import { addInputListeners } from "./weather-form";
 import { getTodayWeather } from "./weather";
 import { displayWeatherToday } from "./dom";
 
 export function initializeLocationInput() {
-	addLocationListener(getTodayWeather, displayWeatherToday);
+	addInputListeners(getTodayWeather, displayWeatherToday);
 }
