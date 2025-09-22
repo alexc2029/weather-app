@@ -17,9 +17,11 @@ export async function getTodayWeather(location, unitGroup) {
 	trimmedWeatherData.icon = weatherJson.days[0].icon;
 	trimmedWeatherData.conditions = weatherJson.days[0].conditions;
 	trimmedWeatherData.description = weatherJson.days[0].description;
-	trimmedWeatherData.temperatureCurrent = weatherJson.currentConditions.temp;
-	trimmedWeatherData.temperatureMin = weatherJson.days[0].tempmin;
-	trimmedWeatherData.temperatureMax = weatherJson.days[0].tempmax;
+	trimmedWeatherData.temperatureCurrent = Math.trunc(
+		weatherJson.currentConditions.temp,
+	);
+	trimmedWeatherData.temperatureMin = Math.trunc(weatherJson.days[0].tempmin);
+	trimmedWeatherData.temperatureMax = Math.trunc(weatherJson.days[0].tempmax);
 	trimmedWeatherData.precipitationProbability =
 		weatherJson.days[0].precipprob;
 	console.log(trimmedWeatherData);

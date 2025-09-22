@@ -25,3 +25,10 @@ export async function displayWeatherToday(weatherData) {
 	precipitationContainer.innerText = `Precipitation: ${weatherData.precipitationProbability}%`;
 	descriptionContainer.innerText = `${weatherData.description}`;
 }
+
+export function toggleUnitStyle() {
+	const celsius = document.querySelector(".celsius");
+	const fahrenheit = document.querySelector(".fahrenheit");
+	celsius.classList.toggle("unit-selected");
+	fahrenheit.classList.toggle("unit-selected");
+}

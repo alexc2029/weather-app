@@ -1,4 +1,4 @@
-export function addInputListeners(dataOnChange, displayOnChange) {
+export function addInputListeners(dataOnChange, displayOnChange, onUnitChange) {
 	const weatherInput = document.getElementById("weather-location");
 	const submitLocationButton = document.getElementById("get-weather");
 	const unitToggle = document.querySelector(".unit-toggle");
@@ -10,7 +10,7 @@ export function addInputListeners(dataOnChange, displayOnChange) {
 	});
 
 	unitToggle.addEventListener("change", async () => {
-		console.log("hey");
+		onUnitChange();
 		if (unitGroup == "metric") unitGroup = "us";
 		else unitGroup = "metric";
 		if (weatherInput.value) submitLocationButton.click();
