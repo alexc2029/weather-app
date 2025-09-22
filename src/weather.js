@@ -12,12 +12,16 @@ async function getWeatherJson(location) {
 }
 
 export async function getTodayWeather(location) {
-	let weatherJson = (await getWeatherJson(location)).days[0];
+	let weatherJson = await getWeatherJson(location);
 	let trimmedWeatherData = {};
-	trimmedWeatherData.conditions = weatherJson.conditions;
-	trimmedWeatherData.description = weatherJson.description;
-	trimmedWeatherData.temperatureMin = weatherJson.tempmin;
-	trimmedWeatherData.temperatureMax = weatherJson.tempmax;
-	trimmedWeatherData.precipitationProbability = weatherJson.precipprob;
+	trimmedWeatherData.icon = weatherJson.days[0].icon;
+	trimmedWeatherData.conditions = weatherJson.days[0].conditions;
+	trimmedWeatherData.description = weatherJson.days[0].description;
+	trimmedWeatherData.temperatureCurrent = weatherJson.currentConditions.temp;
+	trimmedWeatherData.temperatureMin = weatherJson.days[0].tempmin;
+	trimmedWeatherData.temperatureMax = weatherJson.days[0].tempmax;
+	trimmedWeatherData.precipitationProbability =
+		weatherJson.days[0].precipprob;
 	console.log(trimmedWeatherData);
+	return trimmedWeatherData;
 }
