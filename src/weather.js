@@ -24,6 +24,5 @@ export async function getTodayWeather(location, unitGroup) {
 	trimmedWeatherData.temperatureMax = Math.trunc(weatherJson.days[0].tempmax);
 	trimmedWeatherData.precipitationProbability =
 		weatherJson.days[0].precipprob;
-	console.log(trimmedWeatherData);
 	return trimmedWeatherData;
 }

@@ -32,3 +32,10 @@ export function toggleUnitStyle() {
 	celsius.classList.toggle("unit-selected");
 	fahrenheit.classList.toggle("unit-selected");
 }
+
+export function toggleWeatherLoader() {
+	const weatherLoader = document.querySelector(".weather-loader");
+	if (weatherLoader.style.display == "")
+		weatherLoader.style.display = "block";
+	else weatherLoader.style.display = "none";
+}
