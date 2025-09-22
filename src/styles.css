@@ -159,3 +159,10 @@ input:checked + .slider:before {
 		transform: rotate(360deg);
 	}
 }
+
+.units {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+}
